@@ -1,0 +1,18 @@
+#pragma once
+#include "compiler_proper_defines.hpp"
+// File generated from @RPG_CONFIG_FILE_DIR@/config.hpp.in
+
+#cmakedefine BUILD_TEST
+constexpr unsigned char VERSION_MAJOR = 0;
+constexpr unsigned char VERSION_MINOR = 2;
+constexpr unsigned char VERSION_BUILD = 0;
+
+#cmakedefine GIT_BRANCH "@GIT_BRANCH@"
+#cmakedefine GIT_COMMIT_HASH "@GIT_COMMIT_HASH@"
+
+constexpr unsigned int VERSION = VERSION_MAJOR * 10000 + VERSION_MINOR * 100 +
+                                 VERSION_BUILD;
+
+#cmakedefine BUILD_USE_FILESYSTEM
+
+#cmakedefine PROFILING
