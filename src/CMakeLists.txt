@@ -6,7 +6,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 configure_file(config.hpp.in general_config.hpp @ONLY)
 
 
-add_library(InstrumentationTools
+add_library(InstrumentationTools SHARED
         PerformanceTimer.cpp PerformanceTimer.hpp
         InstrumentationTimer.cpp InstrumentationTimer.hpp
         Instrumentor.cpp Instrumentor.hpp
@@ -17,6 +17,7 @@ target_link_libraries(InstrumentationTools glog json)
 if (BUILD_TEST)
     find_package(gtest REQUIRED)
     target_link_libraries(InstrumentationTools gtest)
+    target_compile_definitions(InstrumentationTools PUBLIC BUILD_TEST)
     add_subdirectory(unit_tests)
 endif()
 
